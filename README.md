@@ -8,7 +8,7 @@ Sistema administrativo para una tienda de videojuegos, desarrollado como parte d
 El proyecto permite iniciar sesión, visualizar un panel administrativo y consultar una tabla de videojuegos con opciones de búsqueda, paginación y operaciones simuladas de agregar, editar y eliminar productos.
 
 
-## 🚀 Proyecto desplegado en VPS
+##  Proyecto desplegado en VPS
 
 El proyecto se encuentra publicado en el siguiente servidor:
 
