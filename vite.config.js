@@ -3,5 +3,5 @@ import react from "@vitejs/plugin-react";
 
 export default defineConfig({
   plugins: [react()],
-  base: "/t3_act8_eq8/",
+  base: "/t3_act8_eq08/",
 });
