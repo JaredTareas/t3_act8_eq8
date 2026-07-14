@@ -48,5 +48,23 @@ Esta API proporciona información como:
 
 Endpoint utilizado:
 
-```text
+text
 https://www.cheapshark.com/api/1.0/deals
+
+
+
+DummyJSON API
+
+También se utilizó DummyJSON para simular el inicio de sesión y las operaciones de productos.
+
+Endpoint del login:
+
+https://dummyjson.com/auth/login
+
+Endpoints para productos:
+
+https://dummyjson.com/products/add
+https://dummyjson.com/products/{id}
+
+
+
