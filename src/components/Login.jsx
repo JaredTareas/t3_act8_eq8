@@ -1,5 +1,6 @@
 import { useState } from "react";
 import logoGameWolf from "../assets/logo-gamewolf.png";
+import { iniciarSesionApi } from "../services/api"; // Importamos la nueva función
 
 function Login({ iniciarSesion }) {
   const [usuario, setUsuario] = useState("");
@@ -35,31 +36,17 @@ function Login({ iniciarSesion }) {
     setCargando(true);
 
     try {
-      const respuesta = await fetch(
-        "https://dummyjson.com/auth/login",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            username: usuario.trim(),
-            password: password,
-          }),
-        }
-      );
-
-      const datos = await respuesta.json();
-
-      if (!respuesta.ok) {
-        setMensaje("Usuario o contraseña incorrectos.");
-        return;
-      }
-
+      // Llamamos a la API separada, pasándole el usuario y password limpios
+      const datos = await iniciarSesionApi(usuario.trim(), password);
       iniciarSesion(datos);
     } catch (error) {
       console.error("Error al iniciar sesión:", error);
-      setMensaje("No se pudo conectar con el servidor.");
+      // Atrapamos el error que lanzamos desde api.js o mostramos uno general si falla la red
+      if (error.message === "Usuario o contraseña incorrectos.") {
+        setMensaje(error.message);
+      } else {
+        setMensaje("No se pudo conectar con el servidor.");
+      }
     } finally {
       setCargando(false);
     }
